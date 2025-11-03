@@ -1,5 +1,7 @@
-import multer from "multer"
 import path from "path"
+import multer from "multer"
+// import { V2 as cloudinary } from "cloudinary";
+
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -12,3 +14,13 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage })
+
+
+const uploadToCloudinary = async(file: Express.Multer.File) => {
+
+}
+
+
+export const fileUploder = {
+    upload
+}
