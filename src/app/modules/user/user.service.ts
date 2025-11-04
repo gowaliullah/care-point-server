@@ -7,7 +7,6 @@ import { fileUploder } from "../../helper/fileUploder";
 
 const createPatient = async( req: Request ) => {
 
- 
     if(req.file){
         const fileUpload = await fileUploder.uploadToCloudinary(req.file)
         req.body.patient.profilePhoto = fileUpload?.secure_url
@@ -31,6 +30,15 @@ const createPatient = async( req: Request ) => {
     return result
 }
 
+
+const getAllFromDB = async() => {
+    const result = await prisma.user.findMany()
+    return result
+}
+
+
+
 export const UserService = {
-    createPatient
+    createPatient,
+    getAllFromDB
 }
