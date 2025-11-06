@@ -1,11 +1,11 @@
-import { NextFunction, Request, Response } from "express"
-import { jwtHelperes } from "../helper/jwtHelper";
 import config from "../../config";
+import { jwtHelperes } from "../helper/jwtHelper";
+import { NextFunction, Request, Response } from "express"
 
 const auth = (...roles: string[]) => {
-    async(req: Request & {user: any}, res: Response, next: NextFunction) => {
+    return async(req: Request & {user?: any}, res: Response, next: NextFunction) => {
         try{
-            const token = req.cookies.get("accessToken");
+            const token = req.cookies.accessToken;
 
             if(!token) {
                 throw new Error("You are not authorized...")

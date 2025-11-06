@@ -2,11 +2,17 @@ import { UserController } from "./user.controller";
 import { UserValidation } from "./user.validation";
 import { fileUploder } from "../../helper/fileUploder";
 import express, { NextFunction, Request, Response } from "express"
+import auth from "../../middlewares/auth";
+import { UserRole } from "../../../generated/enums";
 
 const router = express.Router()
 
 
-router.get("", UserController.getAllFromDB)
+router.get(
+    "/", 
+    auth(UserRole.ADMIN),    
+    UserController.getAllFromDB
+)
 
 router.post(
     "/create-patient",
