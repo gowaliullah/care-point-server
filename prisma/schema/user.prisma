@@ -1,4 +1,3 @@
-
 model User {
   id                 String     @id @default(uuid())
   email              String     @unique
@@ -8,10 +7,9 @@ model User {
   status             UserStatus @default(ACTIVE)
   createdAt          DateTime   @default(now())
   updatedAt          DateTime   @updatedAt
-
-  admin Admin?
-  doctor Doctor?
-  patient Patient?
+  admin              Admin?
+  doctor             Doctor?
+  patient            Patient?
 
   @@map("users")
 }
@@ -25,16 +23,15 @@ model Admin {
   isDeleted     Boolean  @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
-
-  user User @relation(fields: [email], references: [email])
+  user          User     @relation(fields: [email], references: [email])
 
   @@map("admins")
 }
 
 model Doctor {
-  id                  String   @id @default(uuid())
-  name                String 
-  email               String @unique
+  id                  String            @id @default(uuid())
+  name                String
+  email               String            @unique
   profilePhoto        String?
   contactNumber       String?
   address             String?
@@ -45,13 +42,11 @@ model Doctor {
   qualification       String
   currentWorkingPlace String
   designation         String
-  isDeleted           Boolean  @default(false)
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
-
-  user User @relation(fields: [email], references: [email])
-
-  doctorSchedules DoctorSchedules[]
+  isDeleted           Boolean           @default(false)
+  createdAt           DateTime          @default(now())
+  updatedAt           DateTime          @updatedAt
+  doctorSchedules     DoctorSchedules[]
+  user                User              @relation(fields: [email], references: [email])
 
   @@map("doctors")
 }
@@ -59,14 +54,13 @@ model Doctor {
 model Patient {
   id           String   @id @default(uuid())
   name         String
-  email        String @unique
+  email        String   @unique
   profilePhoto String?
   address      String?
   isDeleted    Boolean  @default(false)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-
-  user User @relation(fields: [email], references: [email])
+  user         User     @relation(fields: [email], references: [email])
 
   @@map("patients")
 }

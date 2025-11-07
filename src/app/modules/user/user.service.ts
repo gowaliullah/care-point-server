@@ -2,11 +2,10 @@ import bcrypt from "bcryptjs";
 import { Request } from "express";
 import { prisma } from "../../shared/prisma";
 import { fileUploder } from "../../helper/fileUploder";
-import { UserRole } from "../../../generated/enums";
-import { Admin, Doctor, Prisma } from "../../../generated/client";
+
 import { paginationHelper } from "../../shared/pagination";
 import {  userSearchableFields } from "./user.contant";
-
+import { Admin, Doctor, Prisma, UserRole } from "../../../generated/client";
 
 
 

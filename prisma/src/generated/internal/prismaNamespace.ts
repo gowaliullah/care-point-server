@@ -87,19 +87,18 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 6.18.0
- * Query Engine version: 34b5a692b7bd79939a9a2c3ef97d816e749cda2f
+ * Prisma Client JS version: 6.16.3
+ * Query Engine version: bb420e667c1820a8c05a38023385f6cc7ef8e83a
  */
 export const prismaVersion: PrismaVersion = {
-  client: "6.18.0",
-  engine: "34b5a692b7bd79939a9a2c3ef97d816e749cda2f"
+  client: "6.16.3",
+  engine: "bb420e667c1820a8c05a38023385f6cc7ef8e83a"
 }
 
 /**
  * Utility Types
  */
 
-export type Bytes = runtime.Bytes
 export type JsonObject = runtime.JsonObject
 export type JsonArray = runtime.JsonArray
 export type JsonValue = runtime.JsonValue

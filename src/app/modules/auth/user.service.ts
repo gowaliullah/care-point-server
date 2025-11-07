@@ -1,9 +1,8 @@
-import config from "../../../config";
-import { UserStatus } from "../../../generated/enums"
-import { jwtHelperes } from "../../helper/jwtHelper";
-import { prisma } from "../../shared/prisma"
 import bcrypt from 'bcryptjs';
-import jwt from "jsonwebtoken";
+import config from "../../../config";
+import { prisma } from "../../shared/prisma"
+import { jwtHelperes } from "../../helper/jwtHelper";
+import { UserStatus } from "../../../generated/enums";
 
 const login = async( payload: {email: string, password: string} ) => {
 

@@ -1,7 +1,7 @@
 import express from 'express';
 import {  userRoutes } from '../modules/user/user.routes';
 import { authRoutes } from '../modules/auth/user.routes';
-import { scheduleRoutes } from '../modules/schedule/user.routes';
+import { scheduleRoutes } from '../modules/schedule/schedule.routes';
 
 
 const router = express.Router();
