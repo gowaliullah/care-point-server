@@ -99,7 +99,7 @@ const createAdmin = async (req: Request): Promise<Admin> => {
 
 const getAllFromDB = async (params: any, options: any) => {
 
-    const { page, limit, skip, sortBy, sortOrder } = paginationHelper.pagination(options);
+    const { page, limit, skip, sortBy, sortOrder } = paginationHelper.pagination(options); 
     const { searchTerm, ...filterData } = params;
 
     const andConditions: Prisma.UserWhereInput[] = []

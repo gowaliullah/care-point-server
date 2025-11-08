@@ -1,13 +1,32 @@
+import { paginationHelper } from "../../shared/pagination";
 import { prisma } from "../../shared/prisma"
 
-const getAllPatientFromDB = async () => {
-    const patients = await prisma.patient.findMany();
+const getAllPatientFromDB = async (options: any) => {
+    const { page, limit, skip, sortBy, sortOrder } = paginationHelper.pagination(options);
 
-    return patients
+    const patients = await prisma.patient.findMany({
+        skip,
+        take: Number(limit),
+        orderBy: {
+            [sortBy]: sortOrder
+        }
+
+    });
+
+    const total = await prisma.patient.count()
+
+    return {
+        meta: {
+            page,
+            limit,
+            total
+        },
+        data: patients
+    }
 }
 
 
-const getSinglePatinetFromDB = async(id: string) => {
+const getSinglePatinetFromDB = async (id: string) => {
     const patient = await prisma.patient.findFirstOrThrow({
         where: {
             id

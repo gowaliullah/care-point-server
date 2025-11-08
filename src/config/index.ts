@@ -13,5 +13,6 @@ export default {
         api_key: process.env.CLOUDINARY_API_KEY
     },
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
-    refresh_token_secret: process.env.REFRESH_TOKEN_SECRET
+    refresh_token_secret: process.env.REFRESH_TOKEN_SECRET,
+    open_router_api_key: process.env.OPENROUTER_API_KEY
 }
