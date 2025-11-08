@@ -1,9 +1,9 @@
-import express, { NextFunction, Request, Response } from 'express';
-import { SpecialtiesController } from './specialties.controller';
 import auth from '../../middlewares/auth';
+import { UserRole } from '../../../generated/enums';
 import { fileUploder } from '../../helper/fileUploder';
 import { SpecialtiesValidtaion } from './specialties.validation';
-import { UserRole } from '../../../generated/enums';
+import { SpecialtiesController } from './specialties.controller';
+import express, { NextFunction, Request, Response } from 'express';
 
 
 const router = express.Router();
@@ -13,6 +13,7 @@ router.get(
     '/',
     SpecialtiesController.getAllFromDB
 );
+
 
 router.post(
     '/',

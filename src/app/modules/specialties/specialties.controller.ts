@@ -5,8 +5,9 @@ import sendResponse from "../../shared/sendResponse";
 import { SpecialtiesService } from "./specialties.service";
 
 const inserIntoDB = catchAsync(async (req: Request, res: Response) => {
-    const result = await SpecialtiesService.inserIntoDB(req);
 
+    const result = await SpecialtiesService.inserIntoDB(req);
+  
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,

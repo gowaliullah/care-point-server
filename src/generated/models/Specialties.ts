@@ -138,7 +138,7 @@ export type SpecialtiesGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inte
 export type SpecialtiesGroupByOutputType = {
   id: string
   title: string
-  icon: string
+  icon: string | null
   _count: SpecialtiesCountAggregateOutputType | null
   _min: SpecialtiesMinAggregateOutputType | null
   _max: SpecialtiesMaxAggregateOutputType | null
@@ -165,14 +165,14 @@ export type SpecialtiesWhereInput = {
   NOT?: Prisma.SpecialtiesWhereInput | Prisma.SpecialtiesWhereInput[]
   id?: Prisma.StringFilter<"Specialties"> | string
   title?: Prisma.StringFilter<"Specialties"> | string
-  icon?: Prisma.StringFilter<"Specialties"> | string
+  icon?: Prisma.StringNullableFilter<"Specialties"> | string | null
   doctorSpecialties?: Prisma.DoctorSpecialtiesListRelationFilter
 }
 
 export type SpecialtiesOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
   doctorSpecialties?: Prisma.DoctorSpecialtiesOrderByRelationAggregateInput
 }
 
@@ -182,14 +182,14 @@ export type SpecialtiesWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.SpecialtiesWhereInput[]
   NOT?: Prisma.SpecialtiesWhereInput | Prisma.SpecialtiesWhereInput[]
   title?: Prisma.StringFilter<"Specialties"> | string
-  icon?: Prisma.StringFilter<"Specialties"> | string
+  icon?: Prisma.StringNullableFilter<"Specialties"> | string | null
   doctorSpecialties?: Prisma.DoctorSpecialtiesListRelationFilter
 }, "id">
 
 export type SpecialtiesOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
+  icon?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.SpecialtiesCountOrderByAggregateInput
   _max?: Prisma.SpecialtiesMaxOrderByAggregateInput
   _min?: Prisma.SpecialtiesMinOrderByAggregateInput
@@ -201,53 +201,53 @@ export type SpecialtiesScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SpecialtiesScalarWhereWithAggregatesInput | Prisma.SpecialtiesScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Specialties"> | string
   title?: Prisma.StringWithAggregatesFilter<"Specialties"> | string
-  icon?: Prisma.StringWithAggregatesFilter<"Specialties"> | string
+  icon?: Prisma.StringNullableWithAggregatesFilter<"Specialties"> | string | null
 }
 
 export type SpecialtiesCreateInput = {
   id?: string
   title: string
-  icon: string
+  icon?: string | null
   doctorSpecialties?: Prisma.DoctorSpecialtiesCreateNestedManyWithoutSpecialitiesInput
 }
 
 export type SpecialtiesUncheckedCreateInput = {
   id?: string
   title: string
-  icon: string
+  icon?: string | null
   doctorSpecialties?: Prisma.DoctorSpecialtiesUncheckedCreateNestedManyWithoutSpecialitiesInput
 }
 
 export type SpecialtiesUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   doctorSpecialties?: Prisma.DoctorSpecialtiesUpdateManyWithoutSpecialitiesNestedInput
 }
 
 export type SpecialtiesUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   doctorSpecialties?: Prisma.DoctorSpecialtiesUncheckedUpdateManyWithoutSpecialitiesNestedInput
 }
 
 export type SpecialtiesCreateManyInput = {
   id?: string
   title: string
-  icon: string
+  icon?: string | null
 }
 
 export type SpecialtiesUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SpecialtiesUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SpecialtiesCountOrderByAggregateInput = {
@@ -273,6 +273,10 @@ export type SpecialtiesScalarRelationFilter = {
   isNot?: Prisma.SpecialtiesWhereInput
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type SpecialtiesCreateNestedOneWithoutDoctorSpecialtiesInput = {
   create?: Prisma.XOR<Prisma.SpecialtiesCreateWithoutDoctorSpecialtiesInput, Prisma.SpecialtiesUncheckedCreateWithoutDoctorSpecialtiesInput>
   connectOrCreate?: Prisma.SpecialtiesCreateOrConnectWithoutDoctorSpecialtiesInput
@@ -290,13 +294,13 @@ export type SpecialtiesUpdateOneRequiredWithoutDoctorSpecialtiesNestedInput = {
 export type SpecialtiesCreateWithoutDoctorSpecialtiesInput = {
   id?: string
   title: string
-  icon: string
+  icon?: string | null
 }
 
 export type SpecialtiesUncheckedCreateWithoutDoctorSpecialtiesInput = {
   id?: string
   title: string
-  icon: string
+  icon?: string | null
 }
 
 export type SpecialtiesCreateOrConnectWithoutDoctorSpecialtiesInput = {
@@ -318,13 +322,13 @@ export type SpecialtiesUpdateToOneWithWhereWithoutDoctorSpecialtiesInput = {
 export type SpecialtiesUpdateWithoutDoctorSpecialtiesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type SpecialtiesUncheckedUpdateWithoutDoctorSpecialtiesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
-  icon?: Prisma.StringFieldUpdateOperationsInput | string
+  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -400,7 +404,7 @@ export type $SpecialtiesPayload<ExtArgs extends runtime.Types.Extensions.Interna
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     title: string
-    icon: string
+    icon: string | null
   }, ExtArgs["result"]["specialties"]>
   composites: {}
 }
