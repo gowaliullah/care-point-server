@@ -18,7 +18,13 @@ const insertIntoDB = catchAsync(async (req: Request, res: Response) => {
 });
 
 
+const scheduleForDoctor = catchAsync(async (req: Request, res: Response) => {
+    
+    return "result"
+})
+
 
 export const ScheduleController = {
-   insertIntoDB
+    insertIntoDB,
+    scheduleForDoctor
 }
