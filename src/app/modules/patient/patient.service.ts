@@ -7,6 +7,17 @@ const getAllPatientFromDB = async () => {
 }
 
 
+const getSinglePatinetFromDB = async(id: string) => {
+    const patient = await prisma.patient.findFirstOrThrow({
+        where: {
+            id
+        }
+    })
+
+    return patient
+}
+
 export const PatientServices = {
-    getAllPatientFromDB
+    getAllPatientFromDB,
+    getSinglePatinetFromDB
 }

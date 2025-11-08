@@ -9,5 +9,10 @@ router.get(
     PatientController.getAllPatientFromDB 
 )
 
+router.get(
+    "/:id",
+    PatientController.getSinglePatinetFromDB 
+)
+
 
 export const patientRoutes = router
