@@ -23,7 +23,14 @@ const scheduleForDoctor = catchAsync(async (req: Request, res: Response) => {
     const options = pick(req.query, ["page", "limit", "sortBy", "sortOrder"]); // pagination and sorting
     const filters = pick(req.query, ["startDateTime", "endDateTime"]);
 
-    return "result"
+    const result = await ScheduleService.scheduleForDoctor(filters, options)
+
+     sendResponse(res, {
+        statusCode: 201,
+        success: true,
+        message: "Schedule Created successfuly..!",
+        data: result
+    })
 })
 
 
