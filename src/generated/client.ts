@@ -27,8 +27,8 @@ export * from "./enums"
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Schedules
- * const schedules = await prisma.schedule.findMany()
+ * // Fetch zero or more Appoinments
+ * const appoinments = await prisma.appoinment.findMany()
  * ```
  * 
  * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client).
@@ -42,6 +42,21 @@ export { Prisma }
 path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node")
 path.join(process.cwd(), "src/generated/libquery_engine-debian-openssl-3.0.x.so.node")
 
+/**
+ * Model Appoinment
+ * 
+ */
+export type Appoinment = Prisma.AppoinmentModel
+/**
+ * Model Payment
+ * 
+ */
+export type Payment = Prisma.PaymentModel
+/**
+ * Model Prescription
+ * 
+ */
+export type Prescription = Prisma.PrescriptionModel
 /**
  * Model Schedule
  * 

@@ -1,5 +1,5 @@
-import express from "express"
 import { DoctorController } from "./doctor.controller";
+import express from "express"
 
 const router = express.Router()
 
@@ -8,6 +8,12 @@ const router = express.Router()
 router.get(
     "/",
     DoctorController.getAllDoctorFromDB
+)
+
+
+router.get(
+    "/:id",
+    DoctorController.doctorGetByIdFromDb
 )
 
 router.post(

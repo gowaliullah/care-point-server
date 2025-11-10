@@ -33,3 +33,21 @@ export const Gender = {
 } as const
 
 export type Gender = (typeof Gender)[keyof typeof Gender]
+
+
+export const AppoinmentStatus = {
+  SCHEDULED: 'SCHEDULED',
+  INPROGRESS: 'INPROGRESS',
+  COMPLETED: 'COMPLETED',
+  CANCEL: 'CANCEL'
+} as const
+
+export type AppoinmentStatus = (typeof AppoinmentStatus)[keyof typeof AppoinmentStatus]
+
+
+export const PaymentStatus = {
+  PAID: 'PAID',
+  UNPAID: 'UNPAID'
+} as const
+
+export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]

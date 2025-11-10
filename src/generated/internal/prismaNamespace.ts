@@ -390,6 +390,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
+  Appoinment: 'Appoinment',
+  Payment: 'Payment',
+  Prescription: 'Prescription',
   Schedule: 'Schedule',
   DoctorSchedules: 'DoctorSchedules',
   Specialties: 'Specialties',
@@ -413,10 +416,232 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "schedule" | "doctorSchedules" | "specialties" | "doctorSpecialties" | "user" | "admin" | "doctor" | "patient"
+    modelProps: "appoinment" | "payment" | "prescription" | "schedule" | "doctorSchedules" | "specialties" | "doctorSpecialties" | "user" | "admin" | "doctor" | "patient"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Appoinment: {
+      payload: Prisma.$AppoinmentPayload<ExtArgs>
+      fields: Prisma.AppoinmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AppoinmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AppoinmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>
+        }
+        findFirst: {
+          args: Prisma.AppoinmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AppoinmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>
+        }
+        findMany: {
+          args: Prisma.AppoinmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>[]
+        }
+        create: {
+          args: Prisma.AppoinmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>
+        }
+        createMany: {
+          args: Prisma.AppoinmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AppoinmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>[]
+        }
+        delete: {
+          args: Prisma.AppoinmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>
+        }
+        update: {
+          args: Prisma.AppoinmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.AppoinmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AppoinmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AppoinmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.AppoinmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AppoinmentPayload>
+        }
+        aggregate: {
+          args: Prisma.AppoinmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAppoinment>
+        }
+        groupBy: {
+          args: Prisma.AppoinmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppoinmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AppoinmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AppoinmentCountAggregateOutputType> | number
+        }
+      }
+    }
+    Payment: {
+      payload: Prisma.$PaymentPayload<ExtArgs>
+      fields: Prisma.PaymentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PaymentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PaymentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>
+        }
+        findFirst: {
+          args: Prisma.PaymentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PaymentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>
+        }
+        findMany: {
+          args: Prisma.PaymentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>[]
+        }
+        create: {
+          args: Prisma.PaymentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>
+        }
+        createMany: {
+          args: Prisma.PaymentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PaymentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>[]
+        }
+        delete: {
+          args: Prisma.PaymentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>
+        }
+        update: {
+          args: Prisma.PaymentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>
+        }
+        deleteMany: {
+          args: Prisma.PaymentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PaymentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PaymentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>[]
+        }
+        upsert: {
+          args: Prisma.PaymentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PaymentPayload>
+        }
+        aggregate: {
+          args: Prisma.PaymentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePayment>
+        }
+        groupBy: {
+          args: Prisma.PaymentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PaymentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PaymentCountAggregateOutputType> | number
+        }
+      }
+    }
+    Prescription: {
+      payload: Prisma.$PrescriptionPayload<ExtArgs>
+      fields: Prisma.PrescriptionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PrescriptionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PrescriptionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>
+        }
+        findFirst: {
+          args: Prisma.PrescriptionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PrescriptionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>
+        }
+        findMany: {
+          args: Prisma.PrescriptionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>[]
+        }
+        create: {
+          args: Prisma.PrescriptionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>
+        }
+        createMany: {
+          args: Prisma.PrescriptionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PrescriptionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>[]
+        }
+        delete: {
+          args: Prisma.PrescriptionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>
+        }
+        update: {
+          args: Prisma.PrescriptionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>
+        }
+        deleteMany: {
+          args: Prisma.PrescriptionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PrescriptionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PrescriptionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>[]
+        }
+        upsert: {
+          args: Prisma.PrescriptionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrescriptionPayload>
+        }
+        aggregate: {
+          args: Prisma.PrescriptionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePrescription>
+        }
+        groupBy: {
+          args: Prisma.PrescriptionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PrescriptionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PrescriptionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PrescriptionCountAggregateOutputType> | number
+        }
+      }
+    }
     Schedule: {
       payload: Prisma.$SchedulePayload<ExtArgs>
       fields: Prisma.ScheduleFieldRefs
@@ -1048,6 +1273,49 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const AppoinmentScalarFieldEnum = {
+  id: 'id',
+  patientId: 'patientId',
+  doctorId: 'doctorId',
+  scheduleId: 'scheduleId',
+  videoCallingId: 'videoCallingId',
+  status: 'status',
+  paymentStatus: 'paymentStatus',
+  createAt: 'createAt',
+  updateAt: 'updateAt'
+} as const
+
+export type AppoinmentScalarFieldEnum = (typeof AppoinmentScalarFieldEnum)[keyof typeof AppoinmentScalarFieldEnum]
+
+
+export const PaymentScalarFieldEnum = {
+  id: 'id',
+  appoinmentId: 'appoinmentId',
+  amount: 'amount',
+  transactionId: 'transactionId',
+  status: 'status',
+  paymentGateWayData: 'paymentGateWayData',
+  createAt: 'createAt',
+  updateAt: 'updateAt'
+} as const
+
+export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+export const PrescriptionScalarFieldEnum = {
+  id: 'id',
+  appoinmentId: 'appoinmentId',
+  doctorId: 'doctorId',
+  patientId: 'patientId',
+  instructions: 'instructions',
+  followUpDate: 'followUpDate',
+  createAt: 'createAt',
+  updateAt: 'updateAt'
+} as const
+
+export type PrescriptionScalarFieldEnum = (typeof PrescriptionScalarFieldEnum)[keyof typeof PrescriptionScalarFieldEnum]
+
+
 export const ScheduleScalarFieldEnum = {
   id: 'id',
   startDateTime: 'startDateTime',
@@ -1157,12 +1425,29 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull
+} as const
+
+export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
+
+
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
 export const NullsOrder = {
@@ -1194,6 +1479,34 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
 
 
 /**
+ * Reference to a field of type 'AppoinmentStatus'
+ */
+export type EnumAppoinmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AppoinmentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'AppoinmentStatus[]'
+ */
+export type ListEnumAppoinmentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AppoinmentStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PaymentStatus'
+ */
+export type EnumPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'PaymentStatus[]'
+ */
+export type ListEnumPaymentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -1204,6 +1517,34 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -1267,20 +1608,6 @@ export type EnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
  * Reference to a field of type 'Gender[]'
  */
 export type ListEnumGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Gender[]'>
-    
-
-
-/**
- * Reference to a field of type 'Float'
- */
-export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-/**
- * Reference to a field of type 'Float[]'
- */
-export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -1370,6 +1697,9 @@ export interface PrismaClientOptions {
   omit?: GlobalOmitConfig
 }
 export type GlobalOmitConfig = {
+  appoinment?: Prisma.AppoinmentOmit
+  payment?: Prisma.PaymentOmit
+  prescription?: Prisma.PrescriptionOmit
   schedule?: Prisma.ScheduleOmit
   doctorSchedules?: Prisma.DoctorSchedulesOmit
   specialties?: Prisma.SpecialtiesOmit

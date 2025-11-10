@@ -17,7 +17,7 @@ enum Gender {
 
 
 enum AppoinmentStatus {
-  SCHEDULE
+  SCHEDULED
   INPROGRESS
   COMPLETED
   CANCEL

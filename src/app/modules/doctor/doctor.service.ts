@@ -1,12 +1,12 @@
+import { doctorSearchableFields } from "./doctor.constant";
+import { extractJsonFromMessage } from "../../helper/extractJsonFromMessage";
+import { IDoctorUpdateInput } from "./doctor.interface";
+import { paginationHelper } from "../../shared/pagination";
 import { prisma } from "../../shared/prisma";
 import { Prisma } from "../../../generated/client";
-import { paginationHelper } from "../../shared/pagination";
-import { doctorSearchableFields } from "./doctor.constant";
-import { IDoctorUpdateInput } from "./doctor.interface";
-import ApiError from "../../errors/ApiError";
-import httpStatus from 'http-status';
 import { openai } from "../../helper/open-router";
-import { extractJsonFromMessage } from "../../helper/extractJsonFromMessage";
+import httpStatus from 'http-status';
+import ApiError from "../../errors/ApiError";
 
 const getAllDoctorFromDB = async (filters: any, options: any) => {
 
@@ -201,8 +201,31 @@ Return your response in JSON format with full individual doctor data.
 }
 
 
+const doctorGetByIdFromDb = async(id: string) => {
+    const result = await prisma.doctor.findUnique({
+        where: {
+            id,
+            isDeleted: false
+        },
+        include: {
+            doctorSpecialties: {
+                include: {
+                    specialities: true
+                }
+            },
+            doctorSchedules: {
+                include: {
+                    schedule: true
+                }
+            }
+        }
+    })
+}
+
+
 export const DoctorServices = {
     getAllDoctorFromDB,
     updateDoctorProfile,
-    getAISuggestion
+    getAISuggestion,
+    doctorGetByIdFromDb
 }
