@@ -33,6 +33,11 @@ const globalErrorHandler = (err: any, req: Request, res: Response, next: NextFun
             error = err.meta,
             statusCode = httpStatus.BAD_REQUEST
         }
+            if (err.code == "P2003") {
+                message = "Foreign key constraint failed on the field.",
+                error = err.meta,
+                statusCode = httpStatus.BAD_REQUEST
+            }
     }
 
         else if(err instanceof Prisma.PrismaClientValidationError) {

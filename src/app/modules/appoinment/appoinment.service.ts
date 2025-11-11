@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import { IJWTPayload } from "../../types/common"
 import { prisma } from "../../shared/prisma"
+import { stripe } from '../../helper/stripe';
 
 const createAppoinment = async(user: IJWTPayload, payload: {doctorId: string, scheduleId: string}) => {
-    console.log(user);
 
     const patientInfo = await prisma.patient.findFirstOrThrow({
         where: {
@@ -19,7 +19,6 @@ const createAppoinment = async(user: IJWTPayload, payload: {doctorId: string, sc
         }
     })
 
-        console.log(patientInfo.id, doctorInfo.id);
     
     const isExist = await prisma.doctorSchedules.findFirstOrThrow({
         where: {
@@ -31,8 +30,7 @@ const createAppoinment = async(user: IJWTPayload, payload: {doctorId: string, sc
     
     
     const generateVideoCallingId = uuidv4()
-    
-    console.log(patientInfo.id, doctorInfo.id,  generateVideoCallingId);
+    const transactionId = uuidv4()
 
 
     const result = await prisma.$transaction(async(tnx) => {
@@ -56,6 +54,41 @@ const createAppoinment = async(user: IJWTPayload, payload: {doctorId: string, sc
                 isBooked: true
             }
         })
+
+
+        await tnx.payment.create({
+            data: {
+                appoinmentId: appoinmentData.id,
+                amount: doctorInfo.appointmentFee,
+                transactionId: transactionId,
+
+            }
+        })
+
+
+         const session = await stripe.checkout.sessions.create({
+            payment_method_types: ["card"],
+            mode: "payment",
+            customer_email: user.email,
+            line_items: [
+                {
+                    price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: `Appointment wiht ${doctorInfo.name}`,
+                    },
+                    unit_amount: doctorInfo.appointmentFee * 100,
+                    },
+                    quantity: 1,
+                },
+            ],
+            success_url: 'http://localhost:5000/api/v1/success',
+            cancel_url: 'http://localhost:5000/api/v1/cancel',
+        });
+
+        console.log(session);
+
+
 
         return appoinmentData
 

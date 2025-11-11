@@ -14,5 +14,6 @@ export default {
     },
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
     refresh_token_secret: process.env.REFRESH_TOKEN_SECRET,
-    open_router_api_key: process.env.OPENROUTER_API_KEY
+    open_router_api_key: process.env.OPENROUTER_API_KEY,
+    stripe_secret_key: process.env.STRIPE_SECRET_KEY
 }
