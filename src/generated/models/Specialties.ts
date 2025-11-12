@@ -273,10 +273,6 @@ export type SpecialtiesScalarRelationFilter = {
   isNot?: Prisma.SpecialtiesWhereInput
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
 export type SpecialtiesCreateNestedOneWithoutDoctorSpecialtiesInput = {
   create?: Prisma.XOR<Prisma.SpecialtiesCreateWithoutDoctorSpecialtiesInput, Prisma.SpecialtiesUncheckedCreateWithoutDoctorSpecialtiesInput>
   connectOrCreate?: Prisma.SpecialtiesCreateOrConnectWithoutDoctorSpecialtiesInput

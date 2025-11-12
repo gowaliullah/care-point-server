@@ -33,6 +33,21 @@ export type Payment = Prisma.PaymentModel
  */
 export type Prescription = Prisma.PrescriptionModel
 /**
+ * Model Review
+ * 
+ */
+export type Review = Prisma.ReviewModel
+/**
+ * Model PatientHealthData
+ * 
+ */
+export type PatientHealthData = Prisma.PatientHealthDataModel
+/**
+ * Model MedicalReport
+ * 
+ */
+export type MedicalReport = Prisma.MedicalReportModel
+/**
  * Model Schedule
  * 
  */

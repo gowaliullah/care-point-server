@@ -44,6 +44,9 @@ importers:
       openai:
         specifier: ^6.8.1
         version: 6.8.1(zod@4.1.12)
+      prettier:
+        specifier: ^3.6.2
+        version: 3.6.2
       stripe:
         specifier: ^19.3.0
         version: 19.3.0(@types/node@24.10.0)
@@ -704,6 +707,11 @@ packages:
 
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
+
+  prettier@3.6.2:
+    resolution: {integrity: sha512-I7AIg5boAr5R0FFtJ6rCfD+LFsWHp81dolrFD8S79U9tb8Az2nGrJncnMSnys+bpQJfRUzqs9hnA81OAA3hCuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   prisma@6.19.0:
     resolution: {integrity: sha512-F3eX7K+tWpkbhl3l4+VkFtrwJlLXbAM+f9jolgoUZbFcm1DgHZ4cq9AgVEgUym2au5Ad/TDLN8lg83D+M10ycw==}
@@ -1578,6 +1586,8 @@ snapshots:
       confbox: 0.2.2
       exsolve: 1.0.7
       pathe: 2.0.3
+
+  prettier@3.6.2: {}
 
   prisma@6.19.0(typescript@5.9.3):
     dependencies:

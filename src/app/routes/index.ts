@@ -4,6 +4,7 @@ import { appoinmentRoutes } from '../modules/appoinment/appoinment.rotes';
 import { scheduleRoutes } from '../modules/schedule/schedule.routes';
 import { patientRoutes } from '../modules/patient/patient.routes';
 import { doctorRoutes } from '../modules/doctor/doctor.routes';
+import { reviewRoutes } from '../modules/review/review.routes';
 import {  userRoutes } from '../modules/user/user.routes';
 import { authRoutes } from '../modules/auth/user.routes';
 import express from 'express';
@@ -42,6 +43,10 @@ const moduleRoutes = [
     {
         path: '/appoinment',
         route: appoinmentRoutes
+    },
+    {
+        path: '/review',
+        route: reviewRoutes
     },
 ];
 
