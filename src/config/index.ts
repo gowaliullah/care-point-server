@@ -12,8 +12,11 @@ export default {
         cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
         api_key: process.env.CLOUDINARY_API_KEY
     },
+    jwt_secret: process.env.JWT_SECRET,
     access_token_secret: process.env.ACCESS_TOKEN_SECRET,
     refresh_token_secret: process.env.REFRESH_TOKEN_SECRET,
+    jwt_expire_in: process.env.JWT_EXPIRES_IN,
+    reset_password_expire_in: process.env.RESET_PASSWORD_EXPIRES_IN,
     open_router_api_key: process.env.OPENROUTER_API_KEY,
     stripe_secret_key: process.env.STRIPE_SECRET_KEY
 }
