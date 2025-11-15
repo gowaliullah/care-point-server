@@ -3,6 +3,7 @@ import catchAsync from "../../shared/catchAsync";
 import sendResponse from "../../shared/sendResponse";
 import { PatientServices } from "./patient.service";
 import pick from "../../shared/pick";
+import { IJWTPayload } from "../../types/common";
 
 
 const getAllPatientFromDB = catchAsync(async(req: Request, res: Response) => {
@@ -33,7 +34,22 @@ const getSinglePatinetFromDB = catchAsync(async(req: Request, res: Response) => 
     })
 })
 
+
+const updateIntoDB = catchAsync(async(req: Request & {user?: IJWTPayload}, res: Response) => {
+    
+    const user = req.user;
+    const result = await PatientServices.updateIntoDB(user as IJWTPayload, req.body);
+
+     sendResponse(res, {
+        statusCode: 200,
+        success: true,
+        message: "Patient updated successfuly..!",
+        data: result
+    })
+})
+
 export const PatientController = {
     getAllPatientFromDB,
-    getSinglePatinetFromDB
+    getSinglePatinetFromDB,
+    updateIntoDB
 }
