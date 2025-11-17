@@ -4,6 +4,7 @@ import { IJWTPayload } from "../../types/common";
 import sendResponse from "../../shared/sendResponse";
 import catchAsync from "../../shared/catchAsync";
 import { prisma } from "../../shared/prisma";
+import { PaymentStatus } from "../../../generated/enums";
 
 const fetchDashboardMetaData = catchAsync( async(req: Request & {user?: IJWTPayload}, res: Response) => {
     
@@ -21,12 +22,22 @@ const fetchDashboardMetaData = catchAsync( async(req: Request & {user?: IJWTPayl
 
 
 const getAdminMetaData = async() => {
-    const patientData = await prisma.patient.count();
-    const doctorData = await prisma.doctor.count();
-    const adminData = await prisma.admin.count();
+    const patientCount = await prisma.patient.count();
+    const doctorCount = await prisma.doctor.count();
+    const adminCount = await prisma.admin.count();
+    const appoinmentCount = await prisma.appoinment.count();
+    const paymentCount = await prisma.payment.count();
+
+    const totalRevenue = await prisma.payment.aggregate({
+        _sum: {
+            amount: true
+        },
+        where: {
+            status: PaymentStatus.PAID
+        }
+    });
+
 }
-
-
 
 export const MetaController = {
 fetchDashboardMetaData
