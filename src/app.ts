@@ -1,3 +1,4 @@
+import { AppoinmentServices } from './app/modules/appoinment/appoinment.service';
 import { PaymentController } from './app/modules/payment/payment.controller';
 import express, { Application, Request, Response } from 'express';
 import globalErrorHandler from './app/middlewares/globalErrorHandler';
@@ -6,15 +7,27 @@ import notFound from './app/middlewares/notFound';
 import config from './config';
 import router from './app/routes';
 import cors from 'cors';
+import cron from 'node-cron';
 
 const app: Application = express();
-
 
 app.post(
     "/webhook",
     express.raw({type: "application/json"}),
     PaymentController.handleStripeWebhookEvent
 )
+
+
+cron.schedule('* * * * *', () => {
+
+  try {
+  console.log('Node cron callded at:', new Date());
+    AppoinmentServices.cancelUnpaidAppoinment();
+  } catch (error) {
+    console.error(error)
+  }
+
+});
 
 
 app.use(cors({
