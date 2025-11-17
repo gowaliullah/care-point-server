@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
+import { PaymentStatus } from "../../../generated/enums";
 import { MetaService } from "./meta.service";
 import { IJWTPayload } from "../../types/common";
+import { prisma } from "../../shared/prisma";
 import sendResponse from "../../shared/sendResponse";
 import catchAsync from "../../shared/catchAsync";
-import { prisma } from "../../shared/prisma";
-import { PaymentStatus } from "../../../generated/enums";
 
 const fetchDashboardMetaData = catchAsync( async(req: Request & {user?: IJWTPayload}, res: Response) => {
     
@@ -38,6 +38,20 @@ const getAdminMetaData = async() => {
     });
 
 }
+
+
+
+const getBerChartData = async() => {
+    const appoinmentCountPerMonth = await prisma.$queryRaw`
+        SELECT DATE_TRUNC('month', 'createdAt') AS month,
+        CAST(COUNT(*) AS INTEGER) AS count,
+        FROM "appoinments",
+        GROUP BY month,
+        ORDER BY ASC
+    `
+    return appoinmentCountPerMonth
+}
+
 
 export const MetaController = {
 fetchDashboardMetaData
